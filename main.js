@@ -1,8 +1,8 @@
 var game = {
   number: new Decimal(10),
   mult: {
-    amount:[1337, new Decimal(1), new Decimal(1), new Decimal(1), new Decimal(1)],
-    cost:[420, new Decimal(10), new Decimal(1e10), Decimal.fromComponents(1, 2, 2), Decimal.fromComponents(1, 2, 3)],
+    amount:[1337, new Decimal(1), new Decimal(1), new Decimal(1), new Decimal(1), new Decimal(1)],
+    cost:[420, new Decimal(10), new Decimal(1e10), Decimal.fromComponents(1, 2, 2), Decimal.fromComponents(1, 2, 3), Decimal.fromComponents(1, 2, 6)],
     unlocked:[69, false, false, false, false]
   },
 };
@@ -11,6 +11,7 @@ setInterval(function() {
   game.mult.amount[1] = game.mult.amount[1].mul(game.mult.amount[2].root(100));
   game.mult.amount[2] = game.mult.amount[2].mul(game.mult.amount[3].root(100));
   game.mult.amount[3] = game.mult.amount[3].mul(game.mult.amount[4].root(100));
+  game.mult.amount[4] = game.mult.amount[4].mul(game.mult.amount[5].root(100));
   updateStuff();
 }, 10);
 function updateStuff() {
@@ -19,6 +20,7 @@ function updateStuff() {
   document.getElementById("mult2").innerHTML = findDisplayValue(game.mult.amount[2]);
   document.getElementById("mult3").innerHTML = findDisplayValue(game.mult.amount[3]);
   document.getElementById("mult4").innerHTML = findDisplayValue(game.mult.amount[4]);
+  document.getElementById("mult5").innerHTML = findDisplayValue(game.mult.amount[5]);
   if (game.mult.unlocked[1] == false) {
     document.getElementById("multButton1").innerHTML = "Unlock Multiplier 1 Cost: " + findDisplayValue(game.mult.cost[1]);
   } else {
@@ -38,6 +40,11 @@ function updateStuff() {
     document.getElementById("multButton4").innerHTML = "Unlock Multiplier 4 Cost: " + findDisplayValue(game.mult.cost[4]);
   } else {
     document.getElementById("multButton4").innerHTML = "Square Multiplier 4 Cost: " + findDisplayValue(game.mult.cost[4]);
+  }
+  if (game.mult.unlocked[5] == false) {
+    document.getElementById("multButton5").innerHTML = "Unlock Multiplier 5 Cost: " + findDisplayValue(game.mult.cost[5]);
+  } else {
+    document.getElementById("multButton5").innerHTML = "Square Multiplier 5 Cost: " + findDisplayValue(game.mult.cost[5]);
   }
 }
 function buyMult(n) {
@@ -61,6 +68,6 @@ function findDisplayValue(n) {
   } else if (n.lessThan(Decimal.fromComponents(1, 4, 1))) {
     return "e" + findDisplayValue(new Decimal(n.e));
   } else {
-    return "E" + n.e + "#" + n.layer;
+    return "E" + new Decimal(n.e) + "#" + n.layer;
   }
 }
