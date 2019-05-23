@@ -3,7 +3,7 @@ var game = {
   mult: {
     amount:[1337, new Decimal(1), new Decimal(1), new Decimal(1), new Decimal(1), new Decimal(1)],
     cost:[420, new Decimal(10), new Decimal(1e10), Decimal.fromComponents(1, 2, 2), Decimal.fromComponents(1, 2, 3), Decimal.fromComponents(1, 2, 6)],
-    unlocked:[69, false, false, false, false]
+    unlocked:[69, false, false, false, false, false]
   },
 };
 setInterval(function() {
