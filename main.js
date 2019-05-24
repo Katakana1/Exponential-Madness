@@ -51,9 +51,9 @@ function updateStuff() {
     document.getElementById("multButton5").innerHTML = "Square Multiplier 5 Cost: " + findDisplayValue(game.mult.cost[5]);
   }
   if (game.mult.unlocked[6] == false) {
-    document.getElementById("multButton5").innerHTML = "Unlock Multiplier 6 Cost: " + findDisplayValue(game.mult.cost[6]);
+    document.getElementById("multButton6").innerHTML = "Unlock Multiplier 6 Cost: " + findDisplayValue(game.mult.cost[6]);
   } else {
-    document.getElementById("multButton5").innerHTML = "Square Multiplier 6 Cost: " + findDisplayValue(game.mult.cost[6]);
+    document.getElementById("multButton6").innerHTML = "Square Multiplier 6 Cost: " + findDisplayValue(game.mult.cost[6]);
   }
 }
 function buyMult(n) {
