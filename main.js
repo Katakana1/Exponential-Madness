@@ -73,10 +73,10 @@ function findDisplayValue(n) {
   if (n.lessThan(1000)) {
     return n.toFixed(2);
   } else if (n.lessThan(1e100)) {
-    return n.m.toFixed(2) + "e" + findDisplayValue(new Decimal(n.e));
+    return n.m.toFixed(2) + "e" + findDisplayValue(new Decimal(n.mag));
   } else if (n.lessThan(Decimal.fromComponents(1, 4, 1))) {
-    return "e" + findDisplayValue(new Decimal(n.e));
+    return "e" + findDisplayValue(new Decimal(n.mag));
   } else {
-    return "E" + new Decimal(n.e) + "#" + n.layer;
+    return "E" + new Decimal(n.mag) + "#" + n.layer;
   }
 }
