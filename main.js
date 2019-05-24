@@ -12,7 +12,9 @@ setInterval(function() {
   game.mult.amount[2] = game.mult.amount[2].mul(game.mult.amount[3].root(100));
   game.mult.amount[3] = game.mult.amount[3].mul(game.mult.amount[4].root(100));
   game.mult.amount[4] = game.mult.amount[4].mul(game.mult.amount[5].root(100));
-  game.mult.amount[5] = game.mult.amount[5].exp(game.mult.amount[6].root(100));
+  if(game.mult.unlocked[6] == true){
+    game.mult.amount[5] = game.mult.amount[5].exp(game.mult.amount[6].root(100));
+  }
   updateStuff();
 }, 10);
 function updateStuff() {
