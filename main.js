@@ -70,6 +70,7 @@ function buyMult(n) {
   }
 }
 function findDisplayValue(n) {
+  n = new Decimal(n);
   if (n.lessThan(1000)) {
     return n.toFixed(2);
   } else if (n.lessThan(1e100)) {
